@@ -12,9 +12,8 @@ db.on('connected',()=>{
 db.on('disconnected',()=>{
     console.log('Database is Disconnected with server');
 })
-db.on('error',()=>{
-    console.log('Error in Database');
-    ;
+db.on('error',(err)=>{
+    console.log('Error in Database -->',err);
 })
 
 module.export = db;
