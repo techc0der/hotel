@@ -1,8 +1,11 @@
 const mongoose = require('mongoose');
 require('dotenv').config;
-const URL=process.env.DB_URL;
+const DB_URL = process.env.DB_URL;
 
-mongoose.connect(URL);
+mongoose.connect('mongodb://localhost:27017/hotel',{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
 const db = mongoose.connection;
 
@@ -16,4 +19,4 @@ db.on('error',(err)=>{
     console.log('Error in Database -->',err);
 })
 
-module.export = db;
+module.exports = db;
