@@ -4,7 +4,7 @@ const router = express.Router();
 router.use(express.json());
 
 
-router.post('/  ',async(req,res)=>{
+router.post('/',async(req,res)=>{
     try {
         const data = req.body;
         const newFoodItem = await Fooditem.insertMany(data);
