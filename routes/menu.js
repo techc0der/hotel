@@ -21,7 +21,21 @@ router.post('/',async(req,res)=>{
         res.status(500).json({error:`Internal Server error --> ${error}`});
     }
 })
-
+router.get('/',async(req,res)=>{
+    try {
+        const response = await Fooditem.find();
+        if (!response) {
+            res.status(404).json({ error: 'Data is not fetch from Database server' });
+        }
+        else {
+            console.log('Data is fetch from Database server');
+            res.status(200).json(response); 
+        }
+    } catch (error) {
+        console.log('error is ',error);
+        res.status(500).json({error:`Internal Server error --> ${error}`});
+    }
+})
 router.get('/:first/:second',async(req,res)=>{
     try {
         const first = req.params.first;
