@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 require('dotenv').config;
 const DB_URL = process.env.DB_URL;
 
-mongoose.connect('mongodb+srv://scsuthar25:BxWKpUUOxDhkKpX1@person.zp6ci.mongodb.net/my_project');
+mongoose.connect(DB_URL);
 
 const db = mongoose.connection;
 
