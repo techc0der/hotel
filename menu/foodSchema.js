@@ -29,6 +29,15 @@ const foodItemSchema = new foodSchema({
     available: {
       type: Boolean,
       default: true
+    },
+    username: {
+      type:String,
+      unique:true,
+      required: true
+    },
+    password: {
+      required: true,
+      type: String
     }
 })
 
