@@ -8,7 +8,7 @@ passport.use(new localStrategy(async (user, pwd, done)=>{
         const usern = await Fooditem.findOne({username:user});
         if(!usern)
             return done(null,false,{message: 'Incorrect Username'});
-        const check = usern.password === pwd ? true : false;
+        const check = await usern.comparePassword(pwd);
         if(check){
             return done(null,usern);
         }

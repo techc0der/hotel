@@ -7,8 +7,9 @@ router.use(express.json());
 router.post('/',async(req,res)=>{
     try {
         const data = req.body;
-        const newFoodItem = await Fooditem.insertMany(data);
-        //const response = await newFoodItem.save();
+        const newFoodItem = new Fooditem(data);
+        //const newFoodItem = await Fooditem.insertMany(data);
+        const response = await newFoodItem.save();
         if (!newFoodItem) {
             res.status(404).json({ error: 'Data is not saved to database server' });
         }
